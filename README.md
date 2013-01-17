@@ -1,1 +1,3 @@
 This is an attempt to integrate spring+neo4j+scala. It is a success, since that is not difficult.
+
+Actually, the only thing that works here, are the junit tests...
