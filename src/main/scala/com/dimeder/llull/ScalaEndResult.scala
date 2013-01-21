@@ -1,8 +1,5 @@
-package com.dimeder.llull.repositories
+package com.dimeder.llull
 
-import org.springframework.data.neo4j.repository.GraphRepository
-import com.dimeder.llull.models.Word
-import org.neo4j.helpers.collection.ClosableIterable
 import org.springframework.data.neo4j.conversion.EndResult
 
 /**

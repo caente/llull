@@ -16,19 +16,17 @@ import reflect.BeanInfo
 case class TextWord(text:String)
 
 @NodeEntity
-class Word {
+class Llull {
 
 
   @GraphId
   var id: java.lang.Long = _
 
-  @Indexed(indexName = "text", indexType = IndexType.FULLTEXT)
-  var text: String = _
+  @Indexed(indexName = "name", indexType = IndexType.FULLTEXT)
+  var name: String = _
 
-
-  var info:String = _
 
   override def toString = {
-    "Word %s - %s".format(text, info)
+    "Llull: %s".format(name)
   }
 }

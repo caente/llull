@@ -2,10 +2,10 @@ package com.dimeder.llull.services
 
 import org.springframework.stereotype.Component
 import javax.ws.rs.{PathParam, Produces, GET, Path}
-import com.dimeder.llull.models.TextWord
+import com.dimeder.llull.models.{Llull, TextWord}
 import cc.spray.json._
 import org.springframework.beans.factory.annotation.Autowired
-import com.dimeder.llull.repositories.WordRepository
+import com.dimeder.llull.repositories.LlullRepository
 import com.dimeder.llull.DataProtocols._
 import org.springframework.security.access.annotation.Secured
 import org.springframework.security.access.prepost.PreAuthorize
@@ -22,12 +22,12 @@ import org.slf4j.LoggerFactory
 @Component
 @Path("/words")
 @Autowired
-class WordServices() {
+class LlullServices() {
 
-  val logger = LoggerFactory.getLogger(classOf[WordServices])
+  val logger = LoggerFactory.getLogger(classOf[LlullServices])
 
   @Autowired
-  var wordRepository:WordRepository= _
+  var wordRepository:LlullRepository= _
 
 
   @GET
@@ -35,6 +35,8 @@ class WordServices() {
   @Path("/word/{name}/")
   def time(@PathParam("name") name: String) = {
     logger.info(wordRepository.toString)
-    (new TextWord(name)).toJson.toString()
+    val llull = new Llull
+    llull.name="josesito"
+    llull.toJson.toString()
   }
 }
