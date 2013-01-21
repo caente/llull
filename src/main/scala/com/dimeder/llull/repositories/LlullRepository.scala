@@ -1,7 +1,7 @@
 package com.dimeder.llull.repositories
 
 import org.springframework.data.neo4j.repository.GraphRepository
-import com.dimeder.llull.models.Word
+import com.dimeder.llull.models.Llull
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,4 +10,4 @@ import com.dimeder.llull.models.Word
  * Time: 03:07 PM
  * To change this template use File | Settings | File Templates.
  */
-trait LlullRepository extends GraphRepository[Word]
+trait LlullRepository extends GraphRepository[Llull]

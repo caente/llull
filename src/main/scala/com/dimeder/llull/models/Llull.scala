@@ -11,13 +11,14 @@ import reflect.BeanInfo
  * Time: 12:04 PM
  * To change this template use File | Settings | File Templates.
  */
-
-@BeanInfo
-case class TextWord(text:String)
+//
+//@BeanInfo
+//case class JsonLlull(name:String)
 
 @NodeEntity
-class Llull {
+case class Llull(n:String) {
 
+  def this() = this(null)
 
   @GraphId
   var id: java.lang.Long = _
@@ -25,8 +26,17 @@ class Llull {
   @Indexed(indexName = "name", indexType = IndexType.FULLTEXT)
   var name: String = _
 
+  var father:Llull = _
+
+  var children:Set[Llull] = _
+
+  override def equals(o:Any):Boolean = o match {
+    case x:Llull =>x.id==this.id
+    case _ => false
+  }
+
 
   override def toString = {
-    "Llull: %s".format(name)
+    "%s".format(name)
   }
 }

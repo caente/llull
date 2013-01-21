@@ -2,13 +2,11 @@ package com.dimeder.llull.services
 
 import org.springframework.stereotype.Component
 import javax.ws.rs.{PathParam, Produces, GET, Path}
-import com.dimeder.llull.models.{Llull, TextWord}
+import com.dimeder.llull.models.Llull
 import cc.spray.json._
 import org.springframework.beans.factory.annotation.Autowired
 import com.dimeder.llull.repositories.LlullRepository
 import com.dimeder.llull.DataProtocols._
-import org.springframework.security.access.annotation.Secured
-import org.springframework.security.access.prepost.PreAuthorize
 import org.slf4j.LoggerFactory
 
 /**
@@ -27,16 +25,29 @@ class LlullServices() {
   val logger = LoggerFactory.getLogger(classOf[LlullServices])
 
   @Autowired
-  var wordRepository:LlullRepository= _
+  var llullRepository:LlullRepository= _
 
 
   @GET
   @Produces(Array("application/json"))
   @Path("/word/{name}/")
   def time(@PathParam("name") name: String) = {
-    logger.info(wordRepository.toString)
+    logger.info(llullRepository.toString)
+
     val llull = new Llull
     llull.name="josesito"
-    llull.toJson.toString()
+    llull.id=1
+
+    val child = new Llull
+    child.name = "nene"
+    child.id=2
+
+    val father= new Llull
+    father.name="darth"
+    father.children=Set(child,llull)
+
+    llull.father=father
+    child.father=father
+    father.toJson.toString()
   }
 }

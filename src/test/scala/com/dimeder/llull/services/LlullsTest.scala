@@ -56,4 +56,10 @@ class LlullsTest {
     assert(list.length==1,"Estan todos los objetos")
   }
 
+  @Test
+  @Transactional
+  def children(){
+
+  }
+
 }
